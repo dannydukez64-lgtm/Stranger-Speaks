@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#10172a">
+  <title>Strangers Speaks — Free Random Video Chat</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<main class="app">
+  <header class="topbar">
+    <div class="brand"><span>●</span> Strangers Speaks</div>
+    <div class="country">🇮🇳 India-wide</div>
+  </header>
+
+  <section class="hero">
+    <p class="eyebrow">MEET • TALK • CONNECT</p>
+    <h1>Meet someone new.</h1>
+    <p class="sub">Free random video chat with people across India.</p>
+  </section>
+
+  <section class="setup" id="setup">
+    <h2>Get started</h2>
+    <label for="gender">I am</label>
+    <select id="gender">
+      <option value="">Select gender</option>
+      <option value="male">Male</option>
+      <option value="female">Female</option>
+    </select>
+    <label class="check"><input type="checkbox" id="adult"> I confirm that I am 18 years or older.</label>
+    <p class="hint">Male users are matched with female users, and female users with male users. Matches can be anywhere in India.</p>
+    <button id="continueBtn" class="primary">Continue</button>
+  </section>
+
+  <section class="videos">
+    <article class="video-card">
+      <video id="remoteVideo" autoplay playsinline></video>
+      <div class="video-label">Stranger</div>
+      <div id="remotePlaceholder" class="placeholder"><span class="avatar">?</span><span>Waiting for a match</span></div>
+    </article>
+    <article class="video-card self-card">
+      <video id="localVideo" autoplay muted playsinline></video>
+      <div class="video-label">You</div>
+      <div id="localPlaceholder" class="placeholder"><span class="avatar">You</span><span>Your camera preview</span></div>
+    </article>
+  </section>
+
+  <section class="controls">
+    <p id="status" class="status" aria-live="polite">Choose your gender to get started.</p>
+    <div class="button-row">
+      <button id="startBtn" class="primary" disabled>Start Free Chat</button>
+      <button id="nextBtn" disabled>Next</button>
+      <button id="endBtn" class="danger" disabled>End</button>
+    </div>
+    <div class="button-row small-row">
+      <button id="micBtn" disabled>Mute mic</button>
+      <button id="cameraBtn" disabled>Turn camera off</button>
+      <button id="reportBtn" disabled>Report</button>
+    </div>
+  </section>
+
+  <section class="chat">
+    <h2>Text chat</h2>
+    <div id="messages" class="messages"><p class="system-message">Your chat messages will appear here.</p></div>
+    <form id="chatForm" class="chat-form">
+      <input id="messageInput" maxlength="500" placeholder="Write a message..." autocomplete="off" disabled>
+      <button id="sendBtn" type="submit" disabled>Send</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>Free to use. No payments or subscriptions are enabled in this version.</p>
+    <p>18+ only. Be respectful. Do not share private information. Use Report or End whenever needed.</p>
+    <p class="hint">Camera access requires permission and HTTPS on a public website.</p>
+  </footer>
+</main>
+<script src="/socket.io/socket.io.js"></script>
+<script src="/app.js"></script>
+</body>
+</html>
